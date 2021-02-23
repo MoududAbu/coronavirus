@@ -1,15 +1,4 @@
-.container {
-    padding: 24px;
-    height: 100vh;
-
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+.counts {
+    margin: 12px 0;
+    color: var(--text-color-secondary);
 }
-
-.main {
-}
-
-.footer {
-}
-
-
