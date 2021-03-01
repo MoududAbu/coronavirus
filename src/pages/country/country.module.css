@@ -35,3 +35,25 @@
 	font-size: 14px;
 	color: var(--text-color-secondary);
 }
+
+.details_panel {
+	background-color: var(--background-color-light);
+	box-shadow: var(--box-shadow);
+	border-radius: 8px;
+}
+
+.details_panel_heading {
+	padding: 20px;
+	padding-bottom: 0px;
+}
+
+.details_panel_row {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.details_panel_row_label {
+	color: var(--text-color-secondary);
+}
