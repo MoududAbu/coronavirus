@@ -59,6 +59,10 @@
 }
 
 .details_panel_borders {
+	padding: 20px;
+}
+
+.details_panel_borders_container {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 	gap: 24px;
@@ -71,4 +75,9 @@
 
 .details_panel_borders_country {
 	text-align: center;
+}
+
+.details_panel_borders_label {
+	color: var(--text-color-secondary);
+	margin-bottom: 20px;
 }
