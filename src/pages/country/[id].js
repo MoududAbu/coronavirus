@@ -71,8 +71,13 @@ const Country = ({ country }) => {
 						<div className={styles.details_panel_row_value}>{country.gini}%</div>
 					</div>
 
-					<div>
-						
+					<div className={styles.details_panel_borders}>
+						{borderCountries.map(({ flag, name }) => (
+							<div className={styles.details_panel_borders_country}>
+								<img src={flag} alt={name}></img>
+								<div className={styles.details_panel_borders_name}>{name}</div>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>
