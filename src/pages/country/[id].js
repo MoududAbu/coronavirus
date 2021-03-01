@@ -1,8 +1,26 @@
-import { StepLabel } from '@material-ui/core';
+import { useEffect, useState } from 'react';
 import Layout from '../../components/layout/layout';
 import styles from './country.module.css';
 
+const getCountry = async (id) => {
+	const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${id}`);
+
+	return await res.json();
+};
+
 const Country = ({ country }) => {
+	const [borderCountries, setBorderCountries] = useState([]);
+
+	const getBorderCountries = async () => {
+		const borders = await Promise.all(country.borders.map((border) => getCountry(border)));
+
+		setBorderCountries(borders);
+	};
+
+	useEffect(() => {
+		getBorderCountries();
+	});
+
 	return (
 		<Layout title={country.name}>
 			<div>
@@ -52,6 +70,10 @@ const Country = ({ country }) => {
 						<div className={styles.details_panel_row_label}>Gini</div>
 						<div className={styles.details_panel_row_value}>{country.gini}%</div>
 					</div>
+
+					<div>
+						
+					</div>
 				</div>
 			</div>
 		</Layout>
@@ -61,10 +83,8 @@ const Country = ({ country }) => {
 export default Country;
 
 export const getServerSideProps = async ({ params }) => {
-	const res = await fetch(`https://restcountries.eu/rest/v2/alpha/${params.id}`);
+	const country = await getCountry(params.id);
 
-	const country = await res.json();
-	console.log(country);
 	return {
 		props: {
 			country,
