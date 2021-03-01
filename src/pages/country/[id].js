@@ -71,7 +71,7 @@ const Country = ({ country }) => {
 
 						<div className={styles.details_panel_row}>
 							<div className={styles.details_panel_row_label}>Gini</div>
-							<div className={styles.details_panel_row_value}>{country.gini}%</div>
+							<div className={styles.details_panel_row_value}>{country.gini || 0}%</div>
 						</div>
 
 						<div className={styles.details_panel_borders}>
