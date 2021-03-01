@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Logo from '../logo/logo';
 import styles from './layout.module.css';
+import BrightnessSwitcher from '../brightnessSwitcher/brightnessSwitcher';
 
 const Layout = ({ children, title = 'Coronameter' }) => {
 	return (
@@ -11,7 +12,9 @@ const Layout = ({ children, title = 'Coronameter' }) => {
 			</Head>
 			<header className={styles.header}>
 				<Logo />
+				<BrightnessSwitcher />
 			</header>
+
 			<main className={styles.main}>{children}</main>
 			<footer className={styles.footer}>Created by Moudud Abu</footer>
 		</div>
