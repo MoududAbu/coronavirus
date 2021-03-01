@@ -7,28 +7,30 @@ import BrightnessSwitcher from '../brightnessSwitcher/brightnessSwitcher';
 const switchTheme = ({ theme, setTheme }) => {
 	switch (theme) {
 		case 'light':
-			setTheme('dark');
-			localStorage.setItem('theme', 'dark');
-			document.documentElement.setAttribute('data-theme', 'dark');
+			saveTheme('dark', setTheme);
 			break;
 		case 'dark':
-			setTheme('light');
-			localStorage.setItem('theme', 'light');
-			document.documentElement.setAttribute('data-theme', 'light');
+			saveTheme('light', setTheme);
 			break;
 		default:
-			setTheme('light');
-			localStorage.setItem('theme', 'light');
-			document.documentElement.setAttribute('data-theme', 'light');
+			saveTheme('light', setTheme);
 			break;
 	}
+};
+
+const saveTheme = (theme, setTheme) => {
+	setTheme(theme);
+	localStorage.setItem('theme', theme);
+	document.documentElement.setAttribute('data-theme', theme);
 };
 
 const Layout = ({ children, title = 'Coronameter' }) => {
 	const [theme, setTheme] = useState('light');
 
 	useEffect(() => {
-		document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+		const theme = localStorage.getItem('theme');
+		document.documentElement.setAttribute('data-theme', theme);
+		setTheme(theme);
 	});
 
 	return (
