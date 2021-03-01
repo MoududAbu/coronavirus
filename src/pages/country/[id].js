@@ -21,6 +21,38 @@ const Country = ({ country }) => {
 						</div>
 					</div>
 				</div>
+
+				<div className={styles.details_panel}>
+					<h4 className={styles.details_panel_heading}>Details</h4>
+					<div className={styles.details_panel_row}>
+						<div className={styles.details_panel_row_label}>Capital</div>
+						<div className={styles.details_panel_row_value}>{country.capital}</div>
+					</div>
+
+					<div className={styles.details_panel_row}>
+						<div className={styles.details_panel_row_label}>Languages</div>
+						<div className={styles.details_panel_row_value}>
+							{country.languages.map(({ name }) => name).join(', ')}
+						</div>
+					</div>
+
+					<div className={styles.details_panel_row}>
+						<div className={styles.details_panel_row_label}>Currencies</div>
+						<div className={styles.details_panel_row_value}>
+							{country.currencies.map(({ name }) => name).join(', ')}
+						</div>
+					</div>
+
+					<div className={styles.details_panel_row}>
+						<div className={styles.details_panel_row_label}>Native Name</div>
+						<div className={styles.details_panel_row_value}>{country.nativeName}</div>
+					</div>
+
+					<div className={styles.details_panel_row}>
+						<div className={styles.details_panel_row_label}>Gini</div>
+						<div className={styles.details_panel_row_value}>{country.gini}%</div>
+					</div>
+				</div>
 			</div>
 		</Layout>
 	);
