@@ -16,7 +16,7 @@
 }
 
 .heading_name,
-.heading_population,
+.heading_cases,
 .heading_area,
 .heading_gini {
 	flex: 4;
