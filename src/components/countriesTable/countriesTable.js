@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardArrowDownRounded, KeyboardArrowUpRounded } from '@material-ui/icons';
+import { ArrowUpward, KeyboardArrowDownRounded, KeyboardArrowUpRounded } from '@material-ui/icons';
 import styles from './countriesTable.module.css';
 import Link from 'next/link';
 
@@ -43,8 +43,15 @@ const renderRow = (orderedCountries) => {
 	return orderedCountries.map((country, index) => (
 		// <Link key={index} href={`/country/${country.alpha3Code}`}>
 		<div className={styles.row}>
+			<div className={styles.arrow}>
+				{(country.todayCases !== 0 || country.todayDeaths !== 0) && <ArrowUpward className={styles.arrowIcon}/>}
+			</div>
 			<div className={styles.name}>{country.name}</div>
-			<div className={styles.population}>{formatNumber(country.cases)}</div>
+			<div className={styles.cases}>{formatNumber(country.cases)}</div>
+			<div className={styles.todayCases}>{country.todayCases ? formatNumber(country.todayCases) : ''}</div>
+			<div className={styles.deaths}>{formatNumber(country.deaths)}</div>
+			<div className={styles.todayDeaths}>{country.todayDeaths ? formatNumber(country.todayDeaths): ''}</div>
+			<div className={styles.recovered}>{country.recovered ? formatNumber(country.recovered) : 'n/a'}</div>
 		</div>
 		// </Link>
 	));
@@ -83,6 +90,26 @@ const CountriesTable = ({ countries }) => {
 				<button className={styles.heading_cases} onClick={() => setValueAndDirection('cases')}>
 					<div>Cases</div>
 					{value === 'cases' && <SortArrow direction={direction} />}
+				</button>
+
+				<button className={styles.heading_todayCases} onClick={() => setValueAndDirection('todayCases')}>
+					<div>New Cases</div>
+					{value === 'todayCases' && <SortArrow direction={direction} />}
+				</button>
+
+				<button className={styles.heading_deaths} onClick={() => setValueAndDirection('deaths')}>
+					<div>Deaths</div>
+					{value === 'deaths' && <SortArrow direction={direction} />}
+				</button>
+
+				<button className={styles.heading_todayDeaths} onClick={() => setValueAndDirection('todayDeaths')}>
+					<div>New Deaths</div>
+					{value === 'todayDeaths' && <SortArrow direction={direction} />}
+				</button>
+
+				<button className={styles.heading_recovered} onClick={() => setValueAndDirection('recovered')}>
+					<div>Recovered</div>
+					{value === 'recovered' && <SortArrow direction={direction} />}
 				</button>
 			</div>
 			{renderRow(orderedCountries)}

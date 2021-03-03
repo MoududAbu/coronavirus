@@ -17,8 +17,10 @@
 
 .heading_name,
 .heading_cases,
-.heading_area,
-.heading_gini {
+.heading_deaths,
+.heading_todayCases,
+.heading_todayDeaths,
+.heading_recovered {
 	flex: 4;
 	color: var(--text-color-secondary);
 	font-weight: 500;
@@ -61,24 +63,36 @@
 	text-align: left;
 }
 
-.population {
+.cases {
 	flex: 4;
 }
 
-.area {
+.todayCases {
+	color: orange;
 	flex: 4;
 }
 
-.gini {
+.deaths {
 	flex: 4;
 }
 
-.flag {
+.todayDeaths {
+	color: red;
+	flex: 4;
+}
+
+.recovered {
+	color: var(--primary-color);
+	flex: 4;
+}
+
+.arrow {
 	flex: 1;
 	margin-right: 16px;
 }
 
-.flag img {
+.arrowIcon {
+	color: red;
 	border-radius: 2px;
 	width: 100%;
 }
