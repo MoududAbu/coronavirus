@@ -22,7 +22,7 @@ export default function Home({ countries }) {
 			<div className={styles.inputContainer}>
 				<div className={styles.counts}>Found {countries.length} countries</div>
 				<div className={styles.input}>
-					<SearchInput placeholder="filter by Name" onChange={onInputChange} />
+					<SearchInput placeholder="Search a country" onChange={onInputChange} />
 				</div>
 			</div>
 			<CountriesTable countries={filteredCountries} />

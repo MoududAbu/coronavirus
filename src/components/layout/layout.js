@@ -39,9 +39,12 @@ const Layout = ({ children, title = 'Coronameter' }) => {
 				<title>{title}</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
+
 			<header className={styles.header}>
 				<Logo />
-				<BrightnessSwitcher switchTheme={switchTheme} theme={theme} setTheme={setTheme} />
+				<div className={styles.themeSwitcher}>
+					<BrightnessSwitcher switchTheme={switchTheme} theme={theme} setTheme={setTheme} />
+				</div>
 			</header>
 
 			<main className={styles.main}>{children}</main>

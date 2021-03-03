@@ -3,10 +3,15 @@
 	background-color: transparent;
 	padding: 0;
 
-    color:  var(--text-color-secondary);
+    color: white;
     margin-left: 4px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+    align-items: right;
+}
+
+.text {
+    padding-right: 5px;
+    color: white;
 }
